@@ -13,6 +13,21 @@ return new class extends Migration
     {
         Schema::create('maternal_records', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
+            $table->string('husband_name');
+            $table->string('tt_status');
+            $table->string('gp');
+            $table->date('lmp');
+            $table->string('edc');
+            $table->string('termination_of_pregnancy')->nullable();
+            $table->string('outcome')->nullable();
+            $table->date('date_1');
+            $table->date('date_2')->nullable();
+            $table->date('date_3')->nullable();
+            $table->text('ob_findings');
+            $table->string('risk_code')->nullable();
+            $table->string('tt_given')->nullable();
+            $table->string('management');
             $table->timestamps();
         });
     }
