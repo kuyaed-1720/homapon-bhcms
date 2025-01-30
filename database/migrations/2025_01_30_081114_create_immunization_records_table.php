@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('immunization_records', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('child_id')->constrained('children');
+            $table->string('health_center');
+            $table->string('barangay');
+            $table->integer('family_no')->nullable();
+            $table->string('vaccine_name');
+            $table->date('vaccine_date');
+            $table->string('dosage');
+            $table->integer('dose_no');
+            $table->text('remarks')->nullable();
             $table->timestamps();
         });
     }
